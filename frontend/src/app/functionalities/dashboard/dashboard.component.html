@@ -1,0 +1,90 @@
+<div id="demo" class="carousel slide" data-ride="carousel" style="margin-top:-50px;">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://image.freepik.com/free-photo/girlfriends-going-shopping-concept_53876-86016.jpg" alt="Los Angeles" width="100%" height="700">
+      </div>
+      <div class="carousel-item">
+        <img src="https://image.freepik.com/free-photo/low-angle-girl-friends-shopping-mall_23-2148225601.jpg" alt="Chicago" width="100%" height="700">
+      </div>
+      <div class="carousel-item">
+        <img src="https://image.freepik.com/free-photo/smiley-woman-with-shopping-bags_23-2147645084.jpg" alt="New York" width="100%" height="700">
+      </div>
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+<!------------------------------------------------------------------------>
+
+
+
+
+
+<div class="container">
+ 
+
+    <h2 class="font-weight-light text-center text-lg-left mt-4 mb-0">All Items</h2>
+    
+    <hr class="mt-2 mb-5">
+    <div class="row text-center text-lg-left ">
+    
+    
+      <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of Product; let i = index">
+           
+        <div  class="d-block mb-4 h-100" >
+           <h3>{{product.name}}</h3> 
+           <a routerLink="/detail/{{product._id}}"> 
+            <img class="img-fluid img-thumbnail" src={{product.url}} alt="image">
+              <span class="badge"></span> {{product.name | uppercase}}
+              <span class="badge"></span>${{product.price}}
+          </a>
+          <div>
+          <table>
+            <tr>
+            <td class="text-center edit-block">
+              <a routerLink="/cart">
+              
+                <button mat-raised-button color="primary" (click)="add(product._id,product.name,product.url,product.price);product_id='';product.name='';product.url='';product.price='';">Add to Cart</button>
+                 </a>
+            </td>
+           
+            </tr>
+            </table>
+            </div>
+    </div>
+    
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <router-outlet></router-outlet>

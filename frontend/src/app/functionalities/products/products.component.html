@@ -1,0 +1,39 @@
+ <div class="container">
+ 
+
+    <h2 class="font-weight-light text-center text-lg-left mt-4 mb-0">All Items</h2>
+    <p *ngIf="Product.length <= 0" class="no-data text-center">There is no product added yet!</p>
+
+    
+    <hr class="mt-2 mb-5">
+    <div class="row text-center text-lg-left ">
+    
+    
+      <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of Product; let i = index">
+          <h1>{{product.name}}</h1>
+    
+        <div  class="d-block mb-4 h-100" >
+          
+           <a routerLink="/detail/{{product._id}}"> 
+            <img class="img-fluid img-thumbnail" src={{product.url}} alt="image">
+              <span class="badge"></span> {{product.name | uppercase}}
+              <span class="badge"></span>${{product.price}}
+          </a>
+          <div>
+          <table>
+            <tr>
+                <td class="text-center edit-block">
+                    <span class="edit" [routerLink]="['/detail/', product._id]">
+                        <button mat-button color="accent">Edit</button>
+                    </span>
+                    <span class="delete" (click)="removeProduct(product, i)">
+                        <button mat-button color="warn">Delete</button>
+                    </span>
+                  </td>
+            </tr>
+            </table>
+            </div>
+    </div>
+    
+    </div>
+    
